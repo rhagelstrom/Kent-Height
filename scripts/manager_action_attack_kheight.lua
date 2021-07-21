@@ -17,7 +17,7 @@ function onInit()
 	aExtensions = Extension.getExtensions()
 	for _,sExtension in ipairs(aExtensions) do
 		tExtension = Extension.getExtensionInfo(sExtension)
-		if (tExtension.name == "Token Height Indication") then
+		if (tExtension.name == "Token Height Indication") or (tExtension.name == "Feature: Token Height Indication") then
 			bHeight = true
 		end
 		if (tExtension.name == "5E - Automatic Flanking and Range") then
