@@ -44,7 +44,7 @@ function onInit()
 	end
 	if bHeight and bPackTactics then
 		checkDistanceBetweenTokensPack = ActionAttackPTACT.checkDistanceBetweenTokens
-		ActionAttackPTACT.checkDistanceBetweenTokens = customCheckDistanceBetweenTokens
+		ActionAttackPTACT.checkDistanceBetweenTokens = customCheckDistanceBetweenTokensPack
 	end
 end
 
@@ -62,13 +62,42 @@ function onClose()
 end
 
 function customGetRangeBetweenTokens(sourceToken, targetToken)
-	return Token.getDistanceBetween(sourceToken, targetToken)
+	local nDistance = Token.getDistanceBetween(sourceToken, targetToken)
+	if nDistance == 0 then
+		Debug.console("Range: Height returned 0 distance")
+		return getRangeBetweenTokens(sourceToken, targetToken)
+	else
+		return nDistance
+	end
+ 
 end
 
 function customCheckMeleeDistanceBetweenTokens(token, targetToken)
-	return Token.getDistanceBetween(token, targetToken)  <= GameSystem.getDistanceUnitsPerGrid()
+	local nDistance = Token.getDistanceBetween(token, targetToken)
+	if nDistance == 0 then
+		Debug.console("Range: Height returned 0 distance")
+		return checkMeleeDistanceBetweenTokens(token, targetToken)
+	else
+		return nDistance <= GameSystem.getDistanceUnitsPerGrid()
+	end
 end
 
 function customCheckDistanceBetweenTokens(token, targetToken)
-	return Token.getDistanceBetween(token, targetToken)  <= GameSystem.getDistanceUnitsPerGrid()
+	local nDistance = Token.getDistanceBetween(token, targetToken)
+	if nDistance == 0 then
+		Debug.console("SA: Height returned 0 distance")
+		return checkDistanceBetweenTokens(token, targetToken)
+	else
+		return nDistance <= GameSystem.getDistanceUnitsPerGrid()
+	end
+end
+
+function customCheckDistanceBetweenTokensPack(token, targetToken)
+	local nDistance = Token.getDistanceBetween(token, targetToken)
+	if nDistance == 0 then
+		Debug.console("PT: Height returned 0 distance")
+		return checkDistanceBetweenTokensPack(token, targetToken)
+	else
+		return nDistance <= GameSystem.getDistanceUnitsPerGrid()
+	end
 end
