@@ -65,6 +65,7 @@ function customGetRangeBetweenTokens(sourceToken, targetToken)
 	local nDistance = Token.getDistanceBetween(sourceToken, targetToken)
 	if nDistance == 0 then
 		Debug.console("Range: Height returned 0 distance")
+		printstack()
 		return getRangeBetweenTokens(sourceToken, targetToken)
 	else
 		return nDistance
@@ -76,6 +77,7 @@ function customCheckMeleeDistanceBetweenTokens(token, targetToken)
 	local nDistance = Token.getDistanceBetween(token, targetToken)
 	if nDistance == 0 then
 		Debug.console("Range: Height returned 0 distance")
+		printstack()
 		return checkMeleeDistanceBetweenTokens(token, targetToken)
 	else
 		return nDistance <= GameSystem.getDistanceUnitsPerGrid()
@@ -86,6 +88,7 @@ function customCheckDistanceBetweenTokens(token, targetToken)
 	local nDistance = Token.getDistanceBetween(token, targetToken)
 	if nDistance == 0 then
 		Debug.console("SA: Height returned 0 distance")
+		printstack()
 		return checkDistanceBetweenTokens(token, targetToken)
 	else
 		return nDistance <= GameSystem.getDistanceUnitsPerGrid()
@@ -96,6 +99,7 @@ function customCheckDistanceBetweenTokensPack(token, targetToken)
 	local nDistance = Token.getDistanceBetween(token, targetToken)
 	if nDistance == 0 then
 		Debug.console("PT: Height returned 0 distance")
+		printstack()
 		return checkDistanceBetweenTokensPack(token, targetToken)
 	else
 		return nDistance <= GameSystem.getDistanceUnitsPerGrid()

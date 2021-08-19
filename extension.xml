@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 <root release="3.0" version="3">
-	<announcement text="Kent Height v1.2\rby Ryan Hagelstrom 2021" font="emotefont" icon="KentHeight"/>
+	<announcement text="Kent Height v1.3\rby Ryan Hagelstrom 2021" font="emotefont" icon="KentHeight"/>
 	<properties>
     	<loadorder>1500</loadorder>
 		<name>Feature: Kent Height</name>
-		<version>1.2</version>
+		<version>1.3</version>
 		<author>Ryan Hagelstrom</author>
 		<description>Patch extension for compatibilty Kent McCullough with Token Height</description>
 		<ruleset>
